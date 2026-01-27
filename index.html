@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Digismart - Innovative Digital Solutions">
+    <title>Digismart - Transform Your Professional Life</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="index.css?v=3">
+</head>
+
+<body>
+
+    <!-- 1. HEADER (Sticky) -->
+    <header class="header" id="main-header">
+        <a href="#" class="logo">Digismart.ai</a>
+
+        <nav class="nav-links">
+            <a href="#home" class="nav-item">Home</a>
+            <a href="#solutions" class="nav-item">Solutions</a>
+            <a href="#contact" class="nav-item">Contacts</a>
+        </nav>
+
+        <!-- CTA Removed as requested -->
+    </header>
+
+    <!-- 2. FLOATING PILL NAVIGATION -->
+    <div class="floating-menu-container hidden" id="floating-menu">
+        <div class="floating-pill">
+            <a href="#home" class="pill-link">Home</a>
+            <a href="#solutions" class="pill-link">Solutions</a>
+            <a href="#contact" class="pill-link">Contacts</a>
+        </div>
+    </div>
+
+    <!-- 3. HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content fade-up">
+
+            <h1 class="hero-title">Digital solutions to transform your professional life</h1>
+            <p class="hero-description">
+                At Digismart.ai, we transform your daily challenges into opportunities through adapted and innovative
+                solutions. From social media management to custom application development, each tool is designed to
+                solve your specific problems and boost your productivity.
+            </p>
+            <div class="hero-buttons" style="text-align: center;">
+                <div class="hero-buttons" style="text-align: center;">
+                    <a href="#solutions" class="btn btn-primary">Discover More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. INNOVATIVE SOLUTIONS CATEGORY -->
+    <section class="section container" id="innovative-solutions">
+        <div class="category-layout fade-up">
+            <!-- Left: Image -->
+            <div class="category-image-container">
+                <div class="category-main-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');">
+                </div>
+            </div>
+            <!-- Right: Content -->
+            <div class="category-content">
+                <h2 class="category-title">Innovative solutions for every need</h2>
+                <p class="category-subtitle">Discover how our customized solutions can address your specific business
+                    challenges</p>
+
+                <div class="category-list">
+                    <button class="category-item active" data-category="time-saving">Time-saving</button>
+                    <button class="category-item" data-category="sales-simplification">Sales simplification</button>
+                    <button class="category-item" data-category="complete-customization">Complete customization</button>
+                    <button class="category-item" data-category="digital-content">Digital content creation</button>
+                </div>
+
+                <div class="category-details-container">
+                    <div id="category-content-area">
+                        <!-- Content will be injected here by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SOLUÇÕES (AppClickandCollect) -->
+
+    <section class="section container" id="solutions">
+
+        <!-- Feature 1: AppClickandCollect (Text Left, Image Right) -->
+        <div class="feature-row fade-up">
+            <div class="feature-text">
+                <h2 class="section-title">AppClickandCollect — The universal ordering solution</h2>
+                <p class="lead" style="color: var(--text-light); margin-bottom: 2rem;">
+                    Simplify your orders, boost your sales, and offer a seamless experience to your customers.
+                </p>
+                <p>
+                    AppClickandCollect is a simple and powerful application, designed for all types of businesses:
+                    restaurants, bakeries, pizzerias, florists, wine shops, Click and collect, and much more.
+                    A single solution to manage your orders, customers and sales from one intuitive interface.
+                </p>
+                <br>
+                <button id="openPricingModal" class="btn btn-primary">View Pricing & Details</button>
+            </div>
+            <div class="feature-image-container">
+                <div class="feature-img"
+                    style="height: 500px; width: 100%; border-radius: 12px; background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'); background-size: cover; background-position: center;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Spacer -->
+        <div style="height: 4rem;"></div>
+
+        <!-- Feature 2: Reservations (Image Left, Text Right - via .reverse) -->
+        <div class="feature-row reverse fade-up" id="reservations">
+            <div class="feature-text">
+                <h2 class="section-title">Online table reservations</h2>
+                <p class="lead" style="color: var(--text-light); margin-bottom: 2rem;">
+                    Simplify your reservations with our intelligent online solution.
+                </p>
+                <p>
+                    Your customers book 24/7 in just a few clicks while you easily manage your tables, availability
+                    and closures from your intuitive admin interface. Increase your revenue by optimizing every
+                    service.
+                </p>
+            </div>
+            <div class="feature-image-container">
+                <div class="feature-img"
+                    style="height: 500px; width: 100%; border-radius: 12px; background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'); background-size: cover; background-position: center;">
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- PRICING MODAL -->
+    <div id="pricingModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+
+            <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--text-light);">AppClickandCollect Pricing</h2>
+
+            <div class="pricing-highlight">
+                <p class="big-price">0€ <span class="small">+ 10%</span></p>
+                <p class="commission-text">commission per sale</p>
+                <hr style="border-color: rgba(255,255,255,0.1); margin: 1.5rem 0;">
+                <ul class="modal-features">
+                    <li><strong>Full Access:</strong> 1 full free month</li>
+                    <li><strong>Products:</strong> Unlimited products</li>
+                    <li><strong>Setup:</strong> Complete customization by Digismart.ai</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Additional Services</h3>
+
+            <div class="service-row">
+                <div class="service-info">
+                    <h4>Initial menu creation</h4>
+                    <p>Complete menu creation with up to 20 products</p>
+                </div>
+                <div class="service-price">€20</div>
+            </div>
+
+            <div class="service-row">
+                <div class="service-info">
+                    <h4>One-time product modification</h4>
+                    <p>Add or modify a product (minimum 10 actions)</p>
+                </div>
+                <div class="service-price">€10</div>
+            </div>
+
+            <div class="service-row">
+                <div class="service-info">
+                    <h4>Delivery option</h4>
+                    <p>To manage deliveries</p>
+                </div>
+                <div class="service-price">€5.90<span style="font-size: 0.8em">/mo</span></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 5. FUTURE DEVELOPMENTS (Formerly Pricing) -->
+    <section class="section container" id="pricing">
+        <div class="split-layout fade-up" style="margin-bottom: 3rem;">
+            <h2 class="section-title">Our future developments</h2>
+            <div class="split-content">
+                <p class="lead">
+                    Innovating for your success.
+                </p>
+            </div>
+        </div>
+
+        <!-- Future Grid -->
+        <div class="future-grid fade-up">
+            <!-- Card 1 -->
+            <div class="future-card">
+                <div class="future-card-content">
+                    <h3>Integrated payment</h3>
+                    <p>Secure payment solution directly in the application</p>
+                </div>
+                <div class="future-card-visual">
+                    <img src="assets/payment-ui.png" alt="Integrated Payment UI">
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="future-card">
+                <div class="future-card-content">
+                    <h3>Phone orders via AI</h3>
+                    <p>Artificial intelligence to handle your phone orders</p>
+                </div>
+                <div class="future-card-visual">
+                    <img src="assets/ai-phone-ui.png" alt="AI Phone Orders UI">
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="future-card">
+                <div class="future-card-content">
+                    <h3>Real-time delivery tracking</h3>
+                    <p>Track your deliveries live with real-time GPS location</p>
+                </div>
+                <div class="future-card-visual">
+                    <img src="assets/delivery-ui.png" alt="Delivery Tracking UI">
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="future-card">
+                <div class="future-card-content">
+                    <h3>Restaurant ordering kiosk</h3>
+                    <p>Self-service ordering solution to optimize in-house service</p>
+                </div>
+                <div class="future-card-visual">
+                    <img src="assets/kiosk-ui.png" alt="Kiosk UI">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. CLIENTS (Formerly Future Developments) -->
+    <section class="section container" id="clients">
+        <div class="split-layout fade-up">
+            <h2 class="section-title">They trust us</h2>
+            <div class="split-content">
+                <p class="lead">Discover how our solutions have helped our clients transform their daily operations.</p>
+            </div>
+        </div>
+
+        <!-- Large Vertical Cards -->
+        <div class="solutions-grid">
+            <!-- Client 1 -->
+            <div class="feature-large fade-up">
+                <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+                    alt="Pizzeria Client" class="feature-large-img">
+                <h3 style="margin-top: 1.5rem;">Pizzeria Restaurant</h3>
+                <div style="margin-top: 1rem; color: var(--text-muted);">
+                    <p style="margin-bottom: 0.5rem;"><strong style="color: var(--text-light);">The
+                            Challenge:</strong><br>Inefficient order management and limited online presence</p>
+                    <p style="margin-bottom: 0.5rem;"><strong style="color: var(--text-light);">Our
+                            Solution:</strong><br>Online ordering application and social media management</p>
+                    <p style="margin-bottom: 0.5rem;"><strong style="color: var(--text-light);">Results:</strong></p>
+                    <ul style="padding-left: 1.2rem; list-style-type: disc;">
+                        <li>Increased orders</li>
+                        <li>Optimized social presence</li>
+                        <li>Significant time savings</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Client 2 (Placeholder/Hidden for now as user deleted the specific content for the second slot) -->
+            <div class="feature-large fade-up stagger-2" style="margin-top: 8rem;">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+                    alt="Client Success" class="feature-large-img">
+                <h3 style="margin-top: 1.5rem;">Join them</h3>
+                <p>Ready to transform your business? Contact us to start your success story.</p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- 7. CONTACT -->
+    <section class="section container" id="contact">
+        <div class="split-layout fade-up">
+            <h2 class="section-title">Contact</h2>
+            <div class="split-content">
+                <p class="lead">We are here to help you transform your business.</p>
+            </div>
+        </div>
+
+        <div class="contact-grid fade-up">
+            <!-- Email -->
+            <div class="contact-card">
+                <h3>Email</h3>
+                <p><a href="mailto:digismartpt@gmail.com"
+                        style="color: var(--text-muted); text-decoration: none;">digismartpt@gmail.com</a></p>
+            </div>
+            <!-- Phone -->
+            <div class="contact-card">
+                <h3>Phone</h3>
+                <p><a href="tel:+351923319672" style="color: var(--text-muted); text-decoration: none;">+351 923 319
+                        672</a></p>
+            </div>
+            <!-- Address -->
+            <div class="contact-card">
+                <h3>Address</h3>
+                <p>Rua Cruz da Estrada, n° 481<br>4765-326 Oliveira Santa Maria<br>Portugal</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer class="section container"
+        style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 4rem;">
+        <h2 class="logo" style="margin-bottom: 2rem;">Digismart.ai</h2>
+        <p>© 2026 Digismart. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
