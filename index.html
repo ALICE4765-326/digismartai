@@ -15,76 +15,190 @@
         rel="stylesheet">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="index.css?v=3">
+    <link rel="stylesheet" href="index.css?v=52">
 </head>
 
 <body>
 
     <!-- 1. HEADER (Sticky) -->
     <header class="header" id="main-header">
-        <a href="#" class="logo">Digismart.ai</a>
+        <a href="#home" class="logo-container">
+            <div class="logo-box">
+                <svg class="logo-icon-svg" viewBox="0 0 24 24">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                </svg>
+            </div>
+            <div class="logo-text-col">
+                <span class="logo-title">Digismart<span class="logo-ai">.ai</span></span>
+                <span class="logo-subtitle">by Premium à juste prix</span>
+            </div>
+        </a>
 
         <nav class="nav-links">
-            <a href="#home" class="nav-item">Home</a>
-            <a href="#solutions" class="nav-item">Solutions</a>
-            <a href="#contact" class="nav-item">Contacts</a>
+            <a href="#home" class="nav-item" data-i18n="nav.home">Início</a>
+            <a href="#solutions" class="nav-item" data-i18n="nav.solutions">Soluções</a>
+            <a href="#contact" class="nav-item" data-i18n="nav.contacts">Contactos</a>
         </nav>
 
         <!-- CTA Removed as requested -->
+
+        <!-- Language Selector -->
+        <div class="lang-selector-container">
+            <button class="lang-btn" id="langBtn">
+                <span id="currentLang">PT</span>
+                <svg class="arrow-down" viewBox="0 0 10 6" fill="none" stroke="currentColor">
+                    <path d="M1 1L5 5L9 1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+            <div class="lang-dropdown" id="langDropdown">
+                <div class="lang-option selected" data-lang="pt">
+                    <span>🇵🇹</span> PT
+                </div>
+                <div class="lang-option" data-lang="fr">
+                    <span>🇫🇷</span> FR
+                </div>
+                <div class="lang-option" data-lang="en">
+                    <span>🇬🇧</span> EN
+                </div>
+            </div>
+        </div>
+        </div>
     </header>
 
-    <!-- 2. FLOATING PILL NAVIGATION -->
-    <div class="floating-menu-container hidden" id="floating-menu">
-        <div class="floating-pill">
-            <a href="#home" class="pill-link">Home</a>
-            <a href="#solutions" class="pill-link">Solutions</a>
-            <a href="#contact" class="pill-link">Contacts</a>
-        </div>
-    </div>
 
     <!-- 3. HERO SECTION -->
     <section class="hero" id="home">
+        <div class="hero-bg"></div>
         <div class="hero-content fade-up">
 
-            <h1 class="hero-title">Digital solutions to transform your professional life</h1>
-            <p class="hero-description">
-                At Digismart.ai, we transform your daily challenges into opportunities through adapted and innovative
-                solutions. From social media management to custom application development, each tool is designed to
-                solve your specific problems and boost your productivity.
+            <h1 class="hero-title" data-i18n="hero.title">Soluções digitais para transformar a sua vida profissional
+            </h1>
+            <p class="hero-description" data-i18n="hero.desc">
+                Na Digismart.ai, transformamos os seus desafios diários em oportunidades através de soluções adaptadas e
+                inovadoras. Desde a gestão de redes sociais ao desenvolvimento de aplicações personalizadas, cada
+                ferramenta é desenhada para resolver os seus problemas específicos e impulsionar a sua produtividade.
             </p>
             <div class="hero-buttons" style="text-align: center;">
-                <div class="hero-buttons" style="text-align: center;">
-                    <a href="#solutions" class="btn btn-primary">Discover More</a>
-                </div>
+                <a href="#solutions" class="btn btn-primary" data-i18n="hero.cta">Saber Mais</a>
+            </div>
+        </div>
+        <button class="hero-pause-btn" id="heroPauseBtn" aria-label="Pause Animation">
+            <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="6" y="4" width="4" height="16"></rect>
+                <rect x="14" y="4" width="4" height="16"></rect>
+            </svg>
+            <svg class="play-icon hidden" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"></path>
+            </svg>
+        </button>
+    </section>
+
+    <!-- 3.5. OFFERINGS INTRO -->
+    <section class="section container" id="offerings-intro" style="padding-bottom: 0.5rem;">
+        <h2 class="section-title fade-up" data-i18n="offerings.intro_title">As nossas soluções são...</h2>
+        <div class="split-layout fade-up">
+            <div>
+                <h3 data-i18n="offerings.custom_apps_title">Aplicações Personalizadas</h3>
+                <p style="margin-top: 1rem;" data-i18n="offerings.custom_apps_desc">Simplifique os seus processos,
+                    reduza o desperdício de tempo e aumente as suas vendas com aplicações personalizadas. Modelo sem
+                    risco: paga apenas com base nos resultados alcançados.</p>
+            </div>
+            <div>
+                <h3 data-i18n="offerings.social_title">Gestão de Redes Sociais</h3>
+                <p style="margin-top: 1rem;" data-i18n="offerings.social_desc">Atraia e envolva os seus clientes com
+                    conteúdo criativo e estratégico. Tratamos de tudo, desde a criação à publicação, para maximizar o
+                    seu impacto online.</p>
             </div>
         </div>
     </section>
 
     <!-- 4. INNOVATIVE SOLUTIONS CATEGORY -->
-    <section class="section container" id="innovative-solutions">
+    <section class="section container" id="innovative-solutions" style="padding-top: 0.5rem; padding-bottom: 5rem;">
         <div class="category-layout fade-up">
             <!-- Left: Image -->
             <div class="category-image-container">
-                <div class="category-main-img"
-                    style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');">
+                <div class="category-main-img" id="category-dynamic-image"
+                    style="background-image: url('./assets/2.jpeg');">
                 </div>
             </div>
             <!-- Right: Content -->
             <div class="category-content">
-                <h2 class="category-title">Innovative solutions for every need</h2>
-                <p class="category-subtitle">Discover how our customized solutions can address your specific business
-                    challenges</p>
+                <h2 class="category-title" data-i18n="category.title">Soluções inovadoras para cada necessidade</h2>
+                <p class="category-subtitle" data-i18n="category.subtitle">Descubra como as nossas soluções
+                    personalizadas podem responder aos seus desafios de negócio específicos</p>
 
-                <div class="category-list">
-                    <button class="category-item active" data-category="time-saving">Time-saving</button>
-                    <button class="category-item" data-category="sales-simplification">Sales simplification</button>
-                    <button class="category-item" data-category="complete-customization">Complete customization</button>
-                    <button class="category-item" data-category="digital-content">Digital content creation</button>
-                </div>
+                <div class="accordion-list">
+                    <!-- Item 1: Time-saving -->
+                    <div class="accordion-item active" data-image="./assets/2.png">
+                        <div class="accordion-header">
+                            <h3 data-i18n="accordion.time_title">Poupança de tempo</h3>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="accordion-inner">
+                                <p class="accordion-desc" data-i18n="accordion.time_desc">Num mundo onde a rapidez e a
+                                    eficiência são essenciais, as nossas soluções ajudam a otimizar cada minuto do seu
+                                    dia.</p>
+                                <ul class="accordion-features" data-i18n="accordion.list_time">
+                                    <!-- Filled by JS -->
+                                </ul>
+                                <a href="#contact" class="accordion-link" data-i18n="common.contact_us">Contacte-nos
+                                    <span class="arrow">→</span></a>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="category-details-container">
-                    <div id="category-content-area">
-                        <!-- Content will be injected here by JS -->
+                    <!-- Item 2: Sales simplification -->
+                    <div class="accordion-item" data-image="./assets/2.png">
+                        <div class="accordion-header">
+                            <h3 data-i18n="accordion.sales_title">Simplificação de vendas</h3>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="accordion-inner">
+                                <p class="accordion-desc" data-i18n="accordion.sales_desc">Aumente as suas receitas com
+                                    uma experiência de cliente fluida e sem esforço.</p>
+                                <ul class="accordion-features" data-i18n="accordion.list_sales">
+                                    <!-- Filled by JS -->
+                                </ul>
+                                <a href="#contact" class="accordion-link" data-i18n="common.contact_us">Contacte-nos
+                                    <span class="arrow">→</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Complete customization -->
+                    <div class="accordion-item" data-image="./assets/2.jpeg">
+                        <div class="accordion-header">
+                            <h3 data-i18n="accordion.custom_title">Personalização completa</h3>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="accordion-inner">
+                                <p class="accordion-desc" data-i18n="accordion.custom_desc">Soluções feitas à medida
+                                    para refletir os valores da sua empresa.</p>
+                                <ul class="accordion-features" data-i18n="accordion.list_custom">
+                                    <!-- Filled by JS -->
+                                </ul>
+                                <a href="#contact" class="accordion-link" data-i18n="common.contact_us">Contacte-nos
+                                    <span class="arrow">→</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4: Digital content creation -->
+                    <div class="accordion-item" data-image="./assets/2.png">
+                        <div class="accordion-header">
+                            <h3 data-i18n="accordion.content_title">Criação de conteúdo digital</h3>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="accordion-inner">
+                                <p class="accordion-desc" data-i18n="accordion.content_desc">Mostre o seu negócio com
+                                    uma presença online profissional e envolvente.</p>
+                                <ul class="accordion-features" data-i18n="accordion.list_content">
+                                    <!-- Filled by JS -->
+                                </ul>
+                                <a href="#contact" class="accordion-link" data-i18n="common.contact_us">Contacte-nos
+                                    <span class="arrow">→</span></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -93,27 +207,64 @@
 
     <!-- 5. SOLUÇÕES (AppClickandCollect) -->
 
+    </section>
+
+    <!-- 5. WHY CHOOSE DIGISMART -->
+    <section class="section container" id="solutions">
+        <div style="text-align: center; margin-bottom: 4rem;" class="fade-up">
+            <h2 class="section-title" style="margin-bottom: 0.5rem; font-size: 3rem;" data-i18n="why.title">Porquê
+                escolher a Digismart.ai?</h2>
+            <p class="lead" style="color: var(--text-muted);" data-i18n="why.subtitle">Expertise única para o seu
+                sucesso</p>
+        </div>
+
+        <div class="benefits-grid fade-up">
+            <!-- Col 1 -->
+            <div class="benefit-card">
+                <h3 data-i18n="why.card1_title">Double expertise</h3>
+                <p data-i18n="why.card1_desc">Uma combinação vencedora de aplicação inteligente e estratégia de redes
+                    sociais otimizada</p>
+            </div>
+            <!-- Col 2 -->
+            <div class="benefit-card">
+                <h3 data-i18n="why.card2_title">Financeiramente acessível a todos</h3>
+                <p data-i18n="why.card2_desc">Sem investimento inicial necessário. O seu sucesso é a nossa prioridade
+                </p>
+            </div>
+            <!-- Col 3 -->
+            <div class="benefit-card">
+                <h3 data-i18n="why.card3_title">Accompagnement personnalisé</h3>
+                <p data-i18n="why.card3_desc">Agendamento de reuniões para garantir a perfeita compreensão das
+                    necessidades. Acompanhamento dedicado.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SOLUÇÕES (AppClickandCollect) -->
     <section class="section container" id="solutions">
 
         <!-- Feature 1: AppClickandCollect (Text Left, Image Right) -->
         <div class="feature-row fade-up">
             <div class="feature-text">
-                <h2 class="section-title">AppClickandCollect — The universal ordering solution</h2>
-                <p class="lead" style="color: var(--text-light); margin-bottom: 2rem;">
-                    Simplify your orders, boost your sales, and offer a seamless experience to your customers.
+                <h2 class="section-title" data-i18n="features.click_title">AppClickandCollect — A solução universal de
+                    encomendas</h2>
+                <p class="lead" style="color: var(--text-light); margin-bottom: 2rem;" data-i18n="features.click_lead">
+                    Simplifique as suas encomendas, aumente as suas vendas e ofereça uma experiência perfeita aos seus
+                    clientes.
                 </p>
-                <p>
-                    AppClickandCollect is a simple and powerful application, designed for all types of businesses:
-                    restaurants, bakeries, pizzerias, florists, wine shops, Click and collect, and much more.
-                    A single solution to manage your orders, customers and sales from one intuitive interface.
+                <p data-i18n="features.click_desc">
+                    AppClickandCollect é uma aplicação simples e poderosa, desenhada para todos os tipos de negócios:
+                    restaurantes, padarias, pizzarias, floristas, e muito mais. Uma solução única para gerir encomendas,
+                    clientes e vendas numa interface intuitiva.
                 </p>
                 <br>
-                <button id="openPricingModal" class="btn btn-primary">View Pricing & Details</button>
+                <button id="openPricingModal" class="btn btn-primary" data-i18n="features.click_cta">Ver Preços e
+                    Detalhes</button>
             </div>
             <div class="feature-image-container">
-                <div class="feature-img"
-                    style="height: 500px; width: 100%; border-radius: 12px; background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'); background-size: cover; background-position: center;">
-                </div>
+                <img src="./assets/appclickandcollect.jpeg"
+                    style="width: 100%; border-radius: 12px; height: auto; display: block; box-shadow: 0 4px 20px rgba(0,0,0,0.3);"
+                    alt="App Click & Collect">
             </div>
         </div>
 
@@ -123,21 +274,22 @@
         <!-- Feature 2: Reservations (Image Left, Text Right - via .reverse) -->
         <div class="feature-row reverse fade-up" id="reservations">
             <div class="feature-text">
-                <h2 class="section-title">Online table reservations</h2>
-                <p class="lead" style="color: var(--text-light); margin-bottom: 2rem;">
-                    Simplify your reservations with our intelligent online solution.
+                <h2 class="section-title" data-i18n="features.res_title">Reservas de mesa online</h2>
+                <p class="lead" style="color: var(--text-light); margin-bottom: 2rem;" data-i18n="features.res_lead">
+                    Simplifique as suas reservas com a nossa solução inteligente online.
                 </p>
-                <p>
-                    Your customers book 24/7 in just a few clicks while you easily manage your tables, availability
-                    and closures from your intuitive admin interface. Increase your revenue by optimizing every
-                    service.
+                <p data-i18n="features.res_desc">
+                    Os seus clientes reservam 24/7 em poucos cliques enquanto gere facilmente as suas mesas,
+                    disponibilidade e fechos a partir da sua interface de administração intuitiva. Aumente a sua receita
+                    otimizando cada serviço.
                 </p>
             </div>
             <div class="feature-image-container">
-                <div class="feature-img"
-                    style="height: 500px; width: 100%; border-radius: 12px; background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80'); background-size: cover; background-position: center;">
-                </div>
+                <img src="./assets/onlinetablereservations.jpg"
+                    style="width: 100%; border-radius: 12px; height: auto; display: block; box-shadow: 0 4px 20px rgba(0,0,0,0.3);"
+                    alt="Online Reservations">
             </div>
+        </div>
         </div>
 
     </section>
@@ -147,41 +299,44 @@
         <div class="modal-content">
             <button class="modal-close">&times;</button>
 
-            <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--text-light);">AppClickandCollect Pricing</h2>
+            <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--text-light);" data-i18n="pricing.title">Preços
+                AppClickandCollect</h2>
 
             <div class="pricing-highlight">
                 <p class="big-price">0€ <span class="small">+ 10%</span></p>
-                <p class="commission-text">commission per sale</p>
+                <p class="commission-text" data-i18n="pricing.commission">comissão por venda</p>
                 <hr style="border-color: rgba(255,255,255,0.1); margin: 1.5rem 0;">
                 <ul class="modal-features">
-                    <li><strong>Full Access:</strong> 1 full free month</li>
-                    <li><strong>Products:</strong> Unlimited products</li>
-                    <li><strong>Setup:</strong> Complete customization by Digismart.ai</li>
+                    <li data-i18n="pricing.features.access"><strong>Acesso Total:</strong> 1 mês grátis</li>
+                    <li data-i18n="pricing.features.products"><strong>Produtos:</strong> Ilimitados</li>
+                    <li data-i18n="pricing.features.setup"><strong>Configuração:</strong> Personalização completa pela
+                        Digismart.ai</li>
                 </ul>
             </div>
 
-            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Additional Services</h3>
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;" data-i18n="pricing.services_title">Serviços Adicionais
+            </h3>
 
             <div class="service-row">
                 <div class="service-info">
-                    <h4>Initial menu creation</h4>
-                    <p>Complete menu creation with up to 20 products</p>
+                    <h4 data-i18n="pricing.service1_title">Criação de menu inicial</h4>
+                    <p data-i18n="pricing.service1_desc">Criação completa do menu com até 20 produtos</p>
                 </div>
                 <div class="service-price">€20</div>
             </div>
 
             <div class="service-row">
                 <div class="service-info">
-                    <h4>One-time product modification</h4>
-                    <p>Add or modify a product (minimum 10 actions)</p>
+                    <h4 data-i18n="pricing.service2_title">Modificação pontual de produtos</h4>
+                    <p data-i18n="pricing.service2_desc">Adicionar ou modificar um produto (mínimo 10 ações)</p>
                 </div>
                 <div class="service-price">€10</div>
             </div>
 
             <div class="service-row">
                 <div class="service-info">
-                    <h4>Delivery option</h4>
-                    <p>To manage deliveries</p>
+                    <h4 data-i18n="pricing.service3_title">Opção de entrega</h4>
+                    <p data-i18n="pricing.service3_desc">Para gerir entregas</p>
                 </div>
                 <div class="service-price">€5.90<span style="font-size: 0.8em">/mo</span></div>
             </div>
@@ -193,10 +348,10 @@
     <!-- 5. FUTURE DEVELOPMENTS (Formerly Pricing) -->
     <section class="section container" id="pricing">
         <div class="split-layout fade-up" style="margin-bottom: 3rem;">
-            <h2 class="section-title">Our future developments</h2>
+            <h2 class="section-title" data-i18n="future.title">Os nossos desenvolvimentos futuros</h2>
             <div class="split-content">
-                <p class="lead">
-                    Innovating for your success.
+                <p class="lead" data-i18n="future.lead">
+                    Inovando para o seu sucesso.
                 </p>
             </div>
         </div>
@@ -206,8 +361,8 @@
             <!-- Card 1 -->
             <div class="future-card">
                 <div class="future-card-content">
-                    <h3>Integrated payment</h3>
-                    <p>Secure payment solution directly in the application</p>
+                    <h3 data-i18n="future.pay_title">Pagamento integrado</h3>
+                    <p data-i18n="future.pay_desc">Solução de pagamento segura diretamente na aplicação</p>
                 </div>
                 <div class="future-card-visual">
                     <img src="assets/payment-ui.png" alt="Integrated Payment UI">
@@ -217,8 +372,8 @@
             <!-- Card 2 -->
             <div class="future-card">
                 <div class="future-card-content">
-                    <h3>Phone orders via AI</h3>
-                    <p>Artificial intelligence to handle your phone orders</p>
+                    <h3 data-i18n="future.ai_title">Encomendas telefónicas via IA</h3>
+                    <p data-i18n="future.ai_desc">Inteligência artificial para gerir as suas encomendas telefónicas</p>
                 </div>
                 <div class="future-card-visual">
                     <img src="assets/ai-phone-ui.png" alt="AI Phone Orders UI">
@@ -228,8 +383,8 @@
             <!-- Card 3 -->
             <div class="future-card">
                 <div class="future-card-content">
-                    <h3>Real-time delivery tracking</h3>
-                    <p>Track your deliveries live with real-time GPS location</p>
+                    <h3 data-i18n="future.track_title">Rastreamento de entregas em tempo real</h3>
+                    <p data-i18n="future.track_desc">Siga as suas entregas ao vivo com localização GPS em tempo real</p>
                 </div>
                 <div class="future-card-visual">
                     <img src="assets/delivery-ui.png" alt="Delivery Tracking UI">
@@ -239,8 +394,8 @@
             <!-- Card 4 -->
             <div class="future-card">
                 <div class="future-card-content">
-                    <h3>Restaurant ordering kiosk</h3>
-                    <p>Self-service ordering solution to optimize in-house service</p>
+                    <h3 data-i18n="future.kiosk_title">Quiosque de pedidos para restaurante</h3>
+                    <p data-i18n="future.kiosk_desc">Solução de pedidos self-service para otimizar o serviço interno</p>
                 </div>
                 <div class="future-card-visual">
                     <img src="assets/kiosk-ui.png" alt="Kiosk UI">
@@ -251,85 +406,220 @@
 
     <!-- 6. CLIENTS (Formerly Future Developments) -->
     <section class="section container" id="clients">
-        <div class="split-layout fade-up">
-            <h2 class="section-title">They trust us</h2>
-            <div class="split-content">
-                <p class="lead">Discover how our solutions have helped our clients transform their daily operations.</p>
-            </div>
-        </div>
+        <!-- 6. CLIENTS (Formerly Future Developments) -->
+        <section class="section container" id="clients">
 
-        <!-- Large Vertical Cards -->
-        <div class="solutions-grid">
-            <!-- Client 1 -->
-            <div class="feature-large fade-up">
-                <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
-                    alt="Pizzeria Client" class="feature-large-img">
-                <h3 style="margin-top: 1.5rem;">Pizzeria Restaurant</h3>
-                <div style="margin-top: 1rem; color: var(--text-muted);">
-                    <p style="margin-bottom: 0.5rem;"><strong style="color: var(--text-light);">The
-                            Challenge:</strong><br>Inefficient order management and limited online presence</p>
-                    <p style="margin-bottom: 0.5rem;"><strong style="color: var(--text-light);">Our
-                            Solution:</strong><br>Online ordering application and social media management</p>
-                    <p style="margin-bottom: 0.5rem;"><strong style="color: var(--text-light);">Results:</strong></p>
-                    <ul style="padding-left: 1.2rem; list-style-type: disc;">
-                        <li>Increased orders</li>
-                        <li>Optimized social presence</li>
-                        <li>Significant time savings</li>
-                    </ul>
+            <!-- Large Vertical Cards -->
+            <div class="solutions-grid">
+                <!-- Client 1 -->
+                <div class="feature-large fade-up">
+                    <h2 class="section-title" style="margin-bottom: 2rem;" data-i18n="clients.title">Eles confiam em nós
+                    </h2>
+                    <video controls playsinline
+                        style="width: 100%; border-radius: 12px; height: auto; display: block; object-fit: cover;">
+                        <source src="./assets/client.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3 style="margin-top: 1.5rem;" data-i18n="clients.pizzaria_title">Restaurante Pizzaria</h3>
+                    <div style="margin-top: 1rem; color: var(--text-muted);">
+                        <p style="margin-bottom: 0.5rem;"><strong style="color: var(--text-light);"
+                                data-i18n="clients.chal_title">O Desafio:</strong><br><span
+                                data-i18n="clients.chal_desc">Gestão de encomendas ineficiente e presença online
+                                limitada</span></p>
+                        <p style="margin-bottom: 0.5rem;"><strong style="color: var(--text-light);"
+                                data-i18n="clients.sol_title">A Nossa Solução:</strong><br><span
+                                data-i18n="clients.sol_desc">Aplicação de encomendas online e gestão de redes
+                                sociais</span>
+                        </p>
+                        <p style="margin-bottom: 0.5rem;"><strong style="color: var(--text-light);"
+                                data-i18n="clients.res_title">Resultados:</strong></p>
+                        <ul style="padding-left: 1.2rem; list-style-type: disc;" data-i18n="clients.result_list">
+                            <!-- Filled by JS -->
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Client 2: CTA -->
+                <div class="feature-large fade-up stagger-2" style="margin-top: 0;">
+                    <img src="./assets/1.jpeg"
+                        style="width: 100%; border-radius: 12px; height: auto; display: block; object-fit: cover;"
+                        alt="Join our success stories" class="feature-large-img">
+                    <h3 style="margin-top: 1.5rem; font-size: 2rem; text-align: center;" data-i18n="clients.ct_title">
+                        Pronto
+                        para se juntar a eles?</h3>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <a href="#contact" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;"
+                            data-i18n="clients.ct_btn">Contacte-nos</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- 7. CONTACT SECTION -->
+        <section class="section container" id="contact" style="padding-top: 3rem;">
+            <div class="split-layout fade-up">
+                <!-- Left: Contact Info -->
+                <div>
+                    <h2 class="section-title">Contact</h2>
+                    <div class="contact-details" style="margin-bottom: 2rem;">
+                        <!-- Email -->
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div
+                                style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    style="color: var(--primary-color);">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                    </path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 0.9rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 2px;"
+                                    data-i18n="contact.email">
+                                    Email</h3>
+                                <a href="mailto:digismartpt@gmail.com"
+                                    style="color: var(--text-light); text-decoration: none; font-size: 1.1rem;">digismartpt@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div
+                                style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    style="color: var(--primary-color);">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 0.9rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 2px;"
+                                    data-i18n="contact.phone">
+                                    Telefone</h3>
+                                <a href="tel:+351923319672"
+                                    style="color: var(--text-light); text-decoration: none; font-size: 1.1rem;">+351 923
+                                    319
+                                    672</a>
+                            </div>
+                        </div>
+
+                        <!-- Address -->
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                            <div
+                                style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    style="color: var(--primary-color);">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 0.9rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 2px;"
+                                    data-i18n="contact.address">
+                                    Morada</h3>
+                                <span style="color: var(--text-light); font-size: 1.1rem; display: block;">4765-326
+                                    Oliveira
+                                    Santa Maria, Portugal</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 1rem;" data-i18n="contact.follow">Siga-nos</h3>
+                        <a href="https://www.linkedin.com/company/109543153/admin/dashboard/" target="_blank"
+                            rel="noopener" class="btn btn-primary"
+                            style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Map -->
+                <div class="feature-image-container">
+                    <div
+                        style="height: 500px; width: 100%; border-radius: var(--radius-card); overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
+                        <iframe width="100%" height="100%" frameborder="0" style="border:0;"
+                            src="https://maps.google.com/maps?q=4765-326%20Oliveira%20Santa%20Maria%2C%20Portugal&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                            allowfullscreen title="Digismart Location">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <footer class="section container"
+            style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 4rem; padding-top: 4rem;">
+            <div class="split-layout fade-up"
+                style="grid-template-columns: 1.5fr 1fr 1fr; gap: 4rem; align-items: start;">
+
+                <!-- Col 1: Brand -->
+                <div>
+                    <a href="#" class="logo-container footer-logo-container">
+                        <div class="logo-box">
+                            <svg class="logo-icon-svg" viewBox="0 0 24 24">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                            </svg>
+                        </div>
+                        <div class="logo-text-col">
+                            <span class="logo-title">Digismart<span class="logo-ai">.ai</span></span>
+                            <span class="logo-subtitle">by Premium à juste prix</span>
+                        </div>
+                    </a>
+                    <p class="lead" style="max-width: 350px;" data-i18n="footer.desc">
+                        Soluções digitais inovadoras para transformar o seu dia a dia profissional.
+                    </p>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-light);"
+                        data-i18n="footer.quick_links">Links Rápidos</h3>
+                    <nav style="display: flex; flex-direction: column; gap: 1rem;">
+                        <a href="#home" class="nav-item" style="opacity: 0.8;" data-i18n="nav.home">Início</a>
+                        <a href="#solutions" class="nav-item" style="opacity: 0.8;"
+                            data-i18n="nav.solutions">Soluções</a>
+                        <a href="#contact" class="nav-item" style="opacity: 0.8;" data-i18n="nav.contacts">Contactos</a>
+                    </nav>
+                </div>
+
+                <!-- Col 3: Contact -->
+                <div>
+                    <h3 style="font-size: 1.1rem; margin-bottom: 1.5rem; color: var(--text-light);"
+                        data-i18n="contact.title">Contactos</h3>
+                    <div style="display: flex; flex-direction: column; gap: 1rem; color: var(--text-muted);">
+                        <a href="mailto:digismartpt@gmail.com"
+                            style="color: var(--text-muted); text-decoration: none;">digismartpt@gmail.com</a>
+                        <a href="tel:+351923319672" style="color: var(--text-muted); text-decoration: none;">+351 923
+                            319
+                            672</a>
+                        <span>4765-326 Oliveira Santa Maria, Portugal</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Client 2 (Placeholder/Hidden for now as user deleted the specific content for the second slot) -->
-            <div class="feature-large fade-up stagger-2" style="margin-top: 8rem;">
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
-                    alt="Client Success" class="feature-large-img">
-                <h3 style="margin-top: 1.5rem;">Join them</h3>
-                <p>Ready to transform your business? Contact us to start your success story.</p>
+            <!-- Copyright -->
+            <div
+                style="text-align: center; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                <p style="color: var(--text-muted); font-size: 0.9rem;" data-i18n="footer.legal">&copy; 2026 Digismart.
+                    Todos os direitos reservados.</p>
             </div>
-        </div>
-        </div>
-    </section>
+        </footer>
 
-    <!-- 7. CONTACT -->
-    <section class="section container" id="contact">
-        <div class="split-layout fade-up">
-            <h2 class="section-title">Contact</h2>
-            <div class="split-content">
-                <p class="lead">We are here to help you transform your business.</p>
-            </div>
-        </div>
-
-        <div class="contact-grid fade-up">
-            <!-- Email -->
-            <div class="contact-card">
-                <h3>Email</h3>
-                <p><a href="mailto:digismartpt@gmail.com"
-                        style="color: var(--text-muted); text-decoration: none;">digismartpt@gmail.com</a></p>
-            </div>
-            <!-- Phone -->
-            <div class="contact-card">
-                <h3>Phone</h3>
-                <p><a href="tel:+351923319672" style="color: var(--text-muted); text-decoration: none;">+351 923 319
-                        672</a></p>
-            </div>
-            <!-- Address -->
-            <div class="contact-card">
-                <h3>Address</h3>
-                <p>Rua Cruz da Estrada, n° 481<br>4765-326 Oliveira Santa Maria<br>Portugal</p>
-            </div>
-        </div>
-    </section>
-
-
-
-    <footer class="section container"
-        style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 4rem;">
-        <h2 class="logo" style="margin-bottom: 2rem;">Digismart.ai</h2>
-        <p>© 2026 Digismart. All rights reserved.</p>
-    </footer>
-
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+        <!-- JavaScript -->
+        <script src="script.js?v=2"></script>
 </body>
 
 </html>
