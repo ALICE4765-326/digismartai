@@ -498,14 +498,12 @@ p {
     width: 100%;
     height: 100%;
     /* HERO BACKGROUND IMAGE CONFIGURATION */
-    /* Use original sizing logic to avoid zoom */
     background-color: #2E1A12;
-    /* Increased gradient opacity to simulate transparency/fading of the image */
-    background-image: linear-gradient(rgba(46, 26, 18, 0.6), rgba(46, 26, 18, 0.6)),
-        url('./assets/hero_minimalist.png');
+    /* Gradient overlay for better text readability */
+    background-image: linear-gradient(rgba(46, 26, 18, 0.5), rgba(46, 26, 18, 0.5)),
+        url('./assets/hero.jpeg');
     background-size: cover;
-    /* Full width */
-    background-position: right center;
+    background-position: center center;
     background-repeat: no-repeat;
     z-index: 1;
     transition: opacity 1s ease-in-out;

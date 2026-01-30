@@ -179,11 +179,13 @@
         padding-right: var(--spacing-md) !important;
     }
 
-    /* Hero background - better mobile display */
+    /* Hero background - better mobile display for hero.jpeg */
     .hero-bg {
         background-size: cover !important;
-        background-position: center !important;
-        opacity: 0.7 !important;
+        background-position: center center !important;
+        /* Darker overlay on mobile for better text readability */
+        background-image: linear-gradient(rgba(46, 26, 18, 0.65), rgba(46, 26, 18, 0.65)),
+            url('./assets/hero.jpeg') !important;
     }
 
     .hero-title {
