@@ -1,0 +1,359 @@
+/* ===================================
+   RESPONSIVE OVERRIDES
+   =================================== */
+
+/* --- HEADER & MOBILE MENU --- */
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 2000;
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+.hamburger-menu span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-light);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger Animation State */
+.hamburger-menu.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(46, 26, 18, 0.98);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    z-index: 1500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.mobile-nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-nav-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.mobile-nav-item {
+    font-size: 2rem;
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.mobile-nav-overlay.active .mobile-nav-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger animation for items */
+.mobile-nav-overlay.active .mobile-nav-item:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.mobile-nav-overlay.active .mobile-nav-item:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.mobile-nav-overlay.active .mobile-nav-item:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+/* --- MEDIA QUERIES --- */
+
+/* Tablet & Mobile (Max 1024px) */
+@media (max-width: 1024px) {
+    :root {
+        --text-hero: 4rem;
+        --text-h1: 3rem;
+        --text-h2: 2.5rem;
+        --text-h3: 1.75rem;
+        --spacing-xl: 3rem;
+        --spacing-2xl: 4rem;
+    }
+
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+
+    .header {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .nav-links {
+        display: none;
+        /* Hide desktop nav */
+    }
+
+    .hamburger-menu {
+        display: flex;
+        /* Show Hamburger */
+    }
+
+    .lang-selector-container {
+        margin-left: 0;
+        /* Reset margin */
+    }
+
+    /* Stack Split Layouts */
+    .split-layout {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .hero-title {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+        padding: 0 1.5rem !important;
+    }
+
+    .hero-buttons {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+
+/* Mobile Specific (Max 768px) */
+@media (max-width: 768px) {
+    :root {
+        --text-hero: 3rem;
+        --text-h1: 2.5rem;
+        --text-h2: 2rem;
+        --spacing-lg: 2rem;
+    }
+
+    .section {
+        padding: 3rem 0;
+    }
+
+    /* Hero */
+    .hero {
+        padding-top: 120px;
+        min-height: 0;
+        padding-bottom: 4rem;
+        padding-left: var(--spacing-md) !important;
+        padding-right: var(--spacing-md) !important;
+    }
+
+    /* Hero background - better mobile display */
+    .hero-bg {
+        background-size: cover !important;
+        background-position: center !important;
+        opacity: 0.7 !important;
+    }
+
+    .hero-title {
+        font-size: clamp(2.5rem, 10vw, 3.5rem);
+    }
+
+    /* Feature/ZigZag Rows */
+    .feature-row,
+    .feature-row.reverse {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        text-align: left;
+        /* Or center if preferred */
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Force image to appear after text on mobile for reservation section */
+    .feature-row.reverse .feature-image-container {
+        order: 2;
+    }
+
+    .feature-row.reverse .feature-text {
+        order: 1;
+    }
+
+    .feature-image-container img,
+    .feature-image-container video,
+    .feature-large-img {
+        height: auto;
+        max-height: 400px;
+    }
+
+    /* Solutions Grid */
+    .solutions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Benefits Grid */
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* Future Grid */
+    .future-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Contact Grid */
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer Split */
+    .footer .split-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    /* Category/Accordion Section */
+    .category-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .category-image-container {
+        position: relative;
+        top: 0;
+        height: 300px;
+        margin-bottom: 2rem;
+    }
+
+    .category-main-img {
+        border-radius: var(--radius-card);
+    }
+
+    .accordion-list {
+        padding-left: 0;
+        border-left: none;
+    }
+
+    .accordion-header h3 {
+        font-size: 1.5rem;
+    }
+
+    /* Pricing Modal */
+    .modal-content {
+        width: 95%;
+        padding: 1.5rem;
+        max-height: 85vh;
+    }
+
+    .big-price {
+        font-size: 3rem;
+    }
+
+    /* Fix weird spacing in contact */
+    .contact-details {
+        margin-bottom: 3rem;
+    }
+
+    /* Improve mobile spacing for all sections */
+    .section {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+
+    /* Ensure text elements have proper margins */
+    .section-title,
+    .section-subtitle {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Fix button spacing on mobile */
+    .hero-buttons {
+        width: 100%;
+    }
+
+    .btn {
+        min-width: auto;
+        margin: 0 1.5rem;
+    }
+
+    /* Fix feature sections */
+    .feature-text,
+    .feature-content {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
+
+/* Tiny Screens (Max 480px) */
+@media (max-width: 480px) {
+    :root {
+        --text-hero: 2.5rem;
+    }
+
+    .logo-title {
+        font-size: 1.4rem;
+    }
+
+    .logo-box {
+        width: 40px;
+        height: 40px;
+    }
+
+    .btn {
+        width: 100%;
+        /* Full width buttons on mobile */
+        text-align: center;
+        padding: 14px 20px;
+    }
+
+    .lang-btn {
+        padding: 6px 10px;
+    }
+
+    .lang-selector-container {
+        position: absolute;
+        /* Position absolute to not push hamburger too far */
+        right: 60px;
+        /* Left of hamburger */
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+    }
+
+    .hamburger-menu {
+        margin-right: 0;
+    }
+}

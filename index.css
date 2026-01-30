@@ -100,9 +100,9 @@ h4 {
 
 .hero-title {
     font-size: clamp(3rem, 8vw, var(--text-hero));
-    text-align: center;
-    max-width: 1100px;
-    margin: 0 auto;
+    text-align: left;
+    max-width: 800px;
+    margin: 0;
     font-weight: 500;
 }
 
@@ -480,7 +480,9 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     padding-left: var(--spacing-md);
     padding-right: var(--spacing-md);
     padding-right: var(--spacing-md);
@@ -499,11 +501,10 @@ p {
     /* Use original sizing logic to avoid zoom */
     background-color: #2E1A12;
     /* Increased gradient opacity to simulate transparency/fading of the image */
-    background-image: linear-gradient(rgba(46, 26, 18, 0.85), rgba(46, 26, 18, 0.85)),
-        url('./assets/hero_user_provided.png');
-    background-size: cover;
-    /* Full width/height coverage */
-    background-position: center;
+    background-image: url('./assets/hero.jpeg');
+    background-size: 100%;
+    /* Full width */
+    background-position: right center;
     background-repeat: no-repeat;
     z-index: 1;
     transition: opacity 1s ease-in-out;
@@ -515,7 +516,9 @@ p {
     z-index: 2;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
 }
 
 .hero-subtitle {
@@ -534,10 +537,10 @@ p {
 
 .hero-description {
     max-width: 800px;
-    text-align: center;
+    text-align: left;
     /* Collapsed State (Default) - Button immediately below title */
     max-height: 0;
-    margin: 0 auto;
+    margin: 0;
     opacity: 0;
 
     /* Decoration - Removed black box as requested */
@@ -582,20 +585,25 @@ p {
     /* Expanded State */
     visibility: visible;
     max-height: 500px;
-    margin: var(--spacing-lg) auto;
+    margin: var(--spacing-lg) 0;
     opacity: 1;
-    padding: 0 2rem;
-    /* Restore padding when expanded */
+    padding: 0;
+    /* No padding to align with button */
 
     /* Smooth appearance when expanding - NO movement transforms */
     transition: opacity 0.5s ease;
 }
 
 /* Pause Button */
+/* Pause Button OLD - Keeping just in case */
 .hero-pause-btn {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
+    display: none !important;
+}
+
+/* New Centered Button */
+.hero-pause-btn-center {
+    position: relative;
+    margin-top: 1rem;
     z-index: 10;
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -610,14 +618,15 @@ p {
     transition: all 0.3s;
 }
 
-.hero-pause-btn:hover {
+.hero-pause-btn-center:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: scale(1.1);
 }
 
-.hero-pause-btn svg {
+.hero-pause-btn-center svg {
     width: 20px;
     height: 20px;
+
 }
 
 .hidden {
@@ -1394,5 +1403,315 @@ p {
 @media (max-width: 600px) {
     .lang-selector-container {
         margin-left: auto;
+    }
+}
+
+/* ===================================
+   RESPONSIVE OVERRIDES
+   =================================== */
+
+/* --- HEADER & MOBILE MENU --- */
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 2000;
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+.hamburger-menu span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-light);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger Animation State */
+.hamburger-menu.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(20, 20, 20, 0.98);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    z-index: 1500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.mobile-nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-nav-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.mobile-nav-item {
+    font-size: 2rem;
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.mobile-nav-overlay.active .mobile-nav-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger animation for items */
+.mobile-nav-overlay.active .mobile-nav-item:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.mobile-nav-overlay.active .mobile-nav-item:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.mobile-nav-overlay.active .mobile-nav-item:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+/* --- MEDIA QUERIES --- */
+
+/* Tablet & Mobile (Max 1024px) */
+@media (max-width: 1024px) {
+    :root {
+        --text-hero: 4rem;
+        --text-h1: 3rem;
+        --text-h2: 2.5rem;
+        --text-h3: 1.75rem;
+        --spacing-xl: 3rem;
+        --spacing-2xl: 4rem;
+    }
+
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .header {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .nav-links {
+        display: none;
+        /* Hide desktop nav */
+    }
+
+    .hamburger-menu {
+        display: flex;
+        /* Show Hamburger */
+    }
+
+    .lang-selector-container {
+        margin-left: 0;
+        /* Reset margin */
+    }
+
+    /* Stack Split Layouts */
+    .split-layout {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .hero-title {
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+}
+
+/* Mobile Specific (Max 768px) */
+@media (max-width: 768px) {
+    :root {
+        --text-hero: 3rem;
+        --text-h1: 2.5rem;
+        --text-h2: 2rem;
+        --spacing-lg: 2rem;
+    }
+
+    .section {
+        padding: 3rem 0;
+    }
+
+    /* Hero */
+    .hero {
+        padding-top: 120px;
+        min-height: 0;
+        padding-bottom: 4rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2.5rem, 10vw, 3.5rem);
+    }
+
+    /* Feature/ZigZag Rows */
+    .feature-row,
+    .feature-row.reverse {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        text-align: left;
+        /* Or center if preferred */
+    }
+
+    .feature-image-container img,
+    .feature-image-container video,
+    .feature-large-img {
+        height: auto;
+        max-height: 400px;
+    }
+
+    /* Solutions Grid */
+    .solutions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Benefits Grid */
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* Future Grid */
+    .future-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Contact Grid */
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer Split */
+    .footer .split-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    /* Category/Accordion Section */
+    .category-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .category-image-container {
+        position: relative;
+        top: 0;
+        height: 300px;
+        margin-bottom: 2rem;
+    }
+
+    .category-main-img {
+        border-radius: var(--radius-card);
+    }
+
+    .accordion-list {
+        padding-left: 0;
+        border-left: none;
+    }
+
+    .accordion-header h3 {
+        font-size: 1.5rem;
+    }
+
+    /* Pricing Modal */
+    .modal-content {
+        width: 95%;
+        padding: 1.5rem;
+        max-height: 85vh;
+    }
+
+    .big-price {
+        font-size: 3rem;
+    }
+
+    /* Fix weird spacing in contact */
+    .contact-details {
+        margin-bottom: 3rem;
+    }
+}
+
+/* Tiny Screens (Max 480px) */
+@media (max-width: 480px) {
+    :root {
+        --text-hero: 2.5rem;
+    }
+
+    .logo-title {
+        font-size: 1.4rem;
+    }
+
+    .logo-box {
+        width: 40px;
+        height: 40px;
+    }
+
+    .btn {
+        width: 100%;
+        /* Full width buttons on mobile */
+        text-align: center;
+        padding: 14px 20px;
+    }
+
+    .lang-btn {
+        padding: 6px 10px;
+    }
+
+    .lang-selector-container {
+        position: absolute;
+        /* Position absolute to not push hamburger too far */
+        right: 60px;
+        /* Left of hamburger */
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+    }
+
+    .hamburger-menu {
+        margin-right: 0;
+    }
+}
+
+/* Desktop Hero Alignment - Align with "s" of Digismart */
+@media (min-width: 901px) {
+    .hero {
+        padding-left: 10rem;
     }
 }

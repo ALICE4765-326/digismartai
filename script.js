@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 6. HERO ANIMATION CONTROLLER
     const heroSectionBtn = document.querySelector('.hero');
-    const heroPauseBtn = document.getElementById('heroPauseBtn');
+    const heroPauseBtn = document.getElementById('heroPauseBtnNew');
     let heroInterval;
     let isPaused = false;
 
@@ -208,6 +208,28 @@ document.addEventListener('DOMContentLoaded', () => {
         // Start initial loop
         startHeroLoop();
     }
+    // 7. MOBILE MENU TOGGLE
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+
+    if (hamburgerBtn && mobileNav) {
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close menu when clicking a link
+        mobileNavItems.forEach(item => {
+            item.addEventListener('click', () => {
+                hamburgerBtn.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+
 });
 
 // ==========================================

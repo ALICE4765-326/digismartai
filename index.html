@@ -15,7 +15,8 @@
         rel="stylesheet">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="index.css?v=52">
+    <link rel="stylesheet" href="index.css?v=99">
+    <link rel="stylesheet" href="responsive.css?v=99">
 </head>
 
 <body>
@@ -41,6 +42,23 @@
         </nav>
 
         <!-- CTA Removed as requested -->
+
+        <!-- Hamburger Button -->
+        <button class="hamburger-menu" id="hamburgerBtn" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Mobile Navigation Overlay -->
+        <div class="mobile-nav-overlay" id="mobileNav">
+            <div class="mobile-nav-content">
+                <a href="#home" class="mobile-nav-item" data-i18n="nav.home">Início</a>
+                <a href="#solutions" class="mobile-nav-item" data-i18n="nav.solutions">Soluções</a>
+                <a href="#contact" class="mobile-nav-item" data-i18n="nav.contacts">Contactos</a>
+                <!-- Mobile specific lang selector or other items can go here -->
+            </div>
+        </div>
 
         <!-- Language Selector -->
         <div class="lang-selector-container">
@@ -78,19 +96,24 @@
                 inovadoras. Desde a gestão de redes sociais ao desenvolvimento de aplicações personalizadas, cada
                 ferramenta é desenhada para resolver os seus problemas específicos e impulsionar a sua produtividade.
             </p>
-            <div class="hero-buttons" style="text-align: center;">
+            <div class="hero-buttons">
                 <a href="#solutions" class="btn btn-primary" data-i18n="hero.cta">Saber Mais</a>
             </div>
+
+            <div style="width: 100%; display: flex; margin-top: 1.5rem;">
+                <button class="hero-pause-btn-center" id="heroPauseBtnNew" aria-label="Pause Animation"
+                    style="position: relative; margin: 0; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; cursor: pointer; color: white;">
+                    <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;">
+                        <rect x="6" y="4" width="4" height="16"></rect>
+                        <rect x="14" y="4" width="4" height="16"></rect>
+                    </svg>
+                    <svg class="play-icon hidden" viewBox="0 0 24 24" fill="currentColor"
+                        style="width: 20px; height: 20px;">
+                        <path d="M8 5v14l11-7z"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
-        <button class="hero-pause-btn" id="heroPauseBtn" aria-label="Pause Animation">
-            <svg class="pause-icon" viewBox="0 0 24 24" fill="currentColor">
-                <rect x="6" y="4" width="4" height="16"></rect>
-                <rect x="14" y="4" width="4" height="16"></rect>
-            </svg>
-            <svg class="play-icon hidden" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M8 5v14l11-7z"></path>
-            </svg>
-        </button>
     </section>
 
     <!-- 3.5. OFFERINGS INTRO -->
@@ -523,9 +546,9 @@
                                 <h3 style="font-size: 0.9rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 2px;"
                                     data-i18n="contact.address">
                                     Morada</h3>
-                                <span style="color: var(--text-light); font-size: 1.1rem; display: block;">4765-326
-                                    Oliveira
-                                    Santa Maria, Portugal</span>
+                                <span style="color: var(--text-light); font-size: 1.1rem; display: block;">R. Associação
+                                    Desportiva Oliveirense 567<br>
+                                    Oliveira Santa Maria, Portugal</span>
                             </div>
                         </div>
                     </div>
@@ -547,13 +570,16 @@
 
                 <!-- Right: Map -->
                 <div class="feature-image-container">
-                    <div
-                        style="height: 500px; width: 100%; border-radius: var(--radius-card); overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
-                        <iframe width="100%" height="100%" frameborder="0" style="border:0;"
-                            src="https://maps.google.com/maps?q=4765-326%20Oliveira%20Santa%20Maria%2C%20Portugal&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                            allowfullscreen title="Digismart Location">
-                        </iframe>
-                    </div>
+                    <a href="https://www.google.com/maps/place/R.+Associa%C3%A7%C3%A3o+Desportiva+Oliveirense+567,+Oliveira+Santa+Maria/@41.4072131,-8.4166248,21z/data=!4m6!3m5!1s0xd24f6ddc534905f:0xf1792e19243b00!8m2!3d41.4072462!4d-8.4164703!16s%2Fg%2F11h89lp29b?entry=ttu&g_ep=EgoyMDI2MDEyNi4wIKXMDSoASAFQAw%3D%3D"
+                        target="_blank" rel="noopener" style="display: block; cursor: pointer;">
+                        <div
+                            style="height: 500px; width: 100%; border-radius: var(--radius-card); overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
+                            <iframe width="100%" height="100%" frameborder="0" style="border:0; pointer-events: none;"
+                                src="https://maps.google.com/maps?q=R.+Associação+Desportiva+Oliveirense+567,+Oliveira+Santa+Maria,+Portugal&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                                allowfullscreen title="Digismart Location">
+                            </iframe>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -605,7 +631,7 @@
                         <a href="tel:+351923319672" style="color: var(--text-muted); text-decoration: none;">+351 923
                             319
                             672</a>
-                        <span>4765-326 Oliveira Santa Maria, Portugal</span>
+                        <span>R. Associação Desportiva Oliveirense 567, Oliveira Santa Maria, Portugal</span>
                     </div>
                 </div>
             </div>
@@ -619,7 +645,7 @@
         </footer>
 
         <!-- JavaScript -->
-        <script src="script.js?v=2"></script>
+        <script src="script.js?v=99"></script>
 </body>
 
 </html>
