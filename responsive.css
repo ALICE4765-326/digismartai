@@ -311,7 +311,8 @@
 
     .btn {
         min-width: auto;
-        margin: 0 1.5rem;
+        margin: 0;
+        /* REMOVED MARGIN to prevent overflow */
     }
 
     /* Fix feature sections */
