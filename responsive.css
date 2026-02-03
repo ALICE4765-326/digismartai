@@ -277,6 +277,8 @@
         width: 95%;
         padding: 1.5rem;
         max-height: 85vh;
+        overflow-y: auto;
+        /* Enable scrolling if content overflows */
     }
 
     .big-price {
@@ -317,6 +319,23 @@
         padding-left: 1rem !important;
         padding-right: 1rem !important;
     }
+
+    /* Language Selector Visibility on Mobile */
+    .lang-selector-container {
+        position: absolute;
+        right: 60px;
+        /* Position to the left of hamburger */
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+        z-index: 2001;
+        /* Ensure it's above other things if needed */
+    }
+
+    .hamburger-menu {
+        margin-right: 0;
+        /* Align hamburger to right edge since lang is absolute now */
+    }
 }
 
 /* Tiny Screens (Max 480px) */
@@ -345,17 +364,5 @@
         padding: 6px 10px;
     }
 
-    .lang-selector-container {
-        position: absolute;
-        /* Position absolute to not push hamburger too far */
-        right: 60px;
-        /* Left of hamburger */
-        top: 50%;
-        transform: translateY(-50%);
-        margin: 0;
-    }
-
-    .hamburger-menu {
-        margin-right: 0;
-    }
+    /* Inherits absolute positioning from max-width: 768px above */
 }
