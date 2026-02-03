@@ -112,6 +112,8 @@
 
     .container {
         padding: 0 var(--spacing-md);
+        width: 100%;
+        overflow-x: hidden;
     }
 
     .header {
@@ -177,6 +179,8 @@
         padding-bottom: 4rem;
         padding-left: var(--spacing-md) !important;
         padding-right: var(--spacing-md) !important;
+        width: 100%;
+        overflow-x: hidden;
     }
 
     /* Hero background - better mobile display for hero.jpeg */
