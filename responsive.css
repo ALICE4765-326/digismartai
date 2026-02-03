@@ -182,9 +182,10 @@
     /* Hero background - better mobile display for hero.jpeg */
     .hero-bg {
         background-size: cover !important;
-        background-position: center center !important;
-        /* Darker overlay on mobile for better text readability */
-        background-image: linear-gradient(rgba(46, 26, 18, 0.65), rgba(46, 26, 18, 0.65)),
+        background-position: 85% center !important;
+        /* Adjusted to 85% to show design context */
+        /* Reduced overlay opacity to show more design */
+        background-image: linear-gradient(rgba(46, 26, 18, 0.25), rgba(46, 26, 18, 0.25)),
             url('./assets/hero.jpeg') !important;
     }
 
